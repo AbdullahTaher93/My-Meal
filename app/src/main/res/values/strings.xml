@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My-Meal</string>
+
+
+    <string name="search_your_recipes">Search Your Recipes…</string>
+    <string name="meal_categories">Meal Categories</string>
 </resources>
