@@ -30,4 +30,12 @@
         android:id="@+id/addnewmeal"
         android:text="Add"
         ></Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagesgo"
+        android:text="go"
+        android:onClick="imagesgo"
+        ></Button>
 </LinearLayout>

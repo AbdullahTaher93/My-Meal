@@ -75,4 +75,9 @@ public class ViewPagerHeaderAdapter extends PagerAdapter {
     public interface ClickListener {
         void onClick(View v, int position);
     }
+
+    public static class UploadImage {
+
+
+    }
 }

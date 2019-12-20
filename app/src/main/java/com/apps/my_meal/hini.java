@@ -1,5 +1,6 @@
 package com.apps.my_meal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +62,12 @@ public class hini extends AppCompatActivity {
         String id =databaseReference.push().getKey();
         infomeals inm=new infomeals(id,mealname);
         databaseReference.child(id).setValue(inm);
+
+    }
+
+    public void imagesgo(View view){
+        Intent intent=new Intent(hini.this,ShowImages.class);
+        startActivity(intent);
 
     }
 }
