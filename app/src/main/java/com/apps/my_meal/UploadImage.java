@@ -1,10 +1,24 @@
 package com.apps.my_meal;
 
-import android.net.Uri;
 
 public class UploadImage {
     private String imgName;
     private String imgUrl;
+
+    private String meal_name,meal_des,meal_type,USER_ID;
+    private int cocking_time,meal_calories,rating;
+
+
+    public UploadImage(String USER_ID,String imgUrl, String meal_name, String meal_des, String meal_type, int cocking_time, int meal_calories, int rating) {
+        this.USER_ID=USER_ID;
+        this.imgUrl = imgUrl;
+        this.meal_name = meal_name;
+        this.meal_des = meal_des;
+        this.meal_type = meal_type;
+        this.cocking_time = cocking_time;
+        this.meal_calories = meal_calories;
+        this.rating = rating;
+    }
 
     public UploadImage() {
     }
@@ -16,6 +30,14 @@ public class UploadImage {
         }
        this.imgName = imgName;
         this.imgUrl = imgUrl;
+    }
+
+    public String getUSER_ID() {
+        return USER_ID;
+    }
+
+    public void setUSER_ID(String USER_ID) {
+        this.USER_ID = USER_ID;
     }
 
     public String getImgName() {
@@ -32,5 +54,53 @@ public class UploadImage {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public String getMeal_name() {
+        return meal_name;
+    }
+
+    public void setMeal_name(String meal_name) {
+        this.meal_name = meal_name;
+    }
+
+    public String getMeal_des() {
+        return meal_des;
+    }
+
+    public void setMeal_des(String meal_des) {
+        this.meal_des = meal_des;
+    }
+
+    public String getMeal_type() {
+        return meal_type;
+    }
+
+    public void setMeal_type(String meal_type) {
+        this.meal_type = meal_type;
+    }
+
+    public int getCocking_time() {
+        return cocking_time;
+    }
+
+    public void setCocking_time(int cocking_time) {
+        this.cocking_time = cocking_time;
+    }
+
+    public int getMeal_calories() {
+        return meal_calories;
+    }
+
+    public void setMeal_calories(int meal_calories) {
+        this.meal_calories = meal_calories;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }

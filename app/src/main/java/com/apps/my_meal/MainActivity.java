@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                                     for(DataSnapshot post:dataSnapshot.getChildren()){
                                         USER_ID=post.getValue(Users.class).User_ID;
 
+
                                     }
                                     Toast.makeText(MainActivity.this,USER_ID,Toast.LENGTH_LONG).show();
                                 }

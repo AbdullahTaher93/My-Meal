@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,15 +32,24 @@ import com.squareup.picasso.Picasso;
 
 public class ShowImages extends AppCompatActivity {
     Button chooseImage,btnUploadImage,viewGarlley;
-
-    EditText imgDescrption;
+// هنا تم تعريف سبنر من اجل جعل المستخدم يختار خيارات محددة لنوع الطبق الرئيسي
+    private Spinner meal_type;
+//تم تعريف مربع حوار لادخال اسم الطبق  الجديدة و اخر لوصفها وطريقة تحضيرها واخر لوقت المستغرق للطبخ واخر لعدد السعرات الحرارية فيها
+    EditText meal_name,meal_des,cocking_time,meal_calories;
+    // تم تعريف صورة لوضع صورة للطبق
     ImageView imagePreview;
+
+    //تم تعريف رابط لسحب وحفظ الصورة في الداتا بيس
     Uri imgUrl;
+    // شريط تحميل يعمل على اظهار مدة التحميل
     ProgressBar progressBar;
     private  int PICK_IMAGE_REQUEST=1;
-    private String USER_ID=MainActivity.USER_ID;
+    // هنا قمنا باخذ يوزر ايدي من اجل حفظه مع الطبق لمعرفه من قام بضافه هذا الطبق
+    private String USER_ID;
 
+//تم تعريف ستورج الخاص بالفايربيس لحفظ الصور
     private StorageReference storageReference;
+    //تم تعريف داتة بيس خاصه بالفايبريس
     private DatabaseReference databaseReference;
 
 
@@ -50,9 +60,22 @@ public class ShowImages extends AppCompatActivity {
         chooseImage=findViewById(R.id.brows);
         btnUploadImage=findViewById(R.id.upload);
         viewGarlley=findViewById(R.id.show);
-        imgDescrption=findViewById(R.id.NAME);
+
+        USER_ID =MainActivity.USER_ID;
+
+        Toast.makeText(this,USER_ID,Toast.LENGTH_LONG).show();
+
+
+        meal_name=findViewById(R.id.meal_name);
+        meal_des=findViewById(R.id.meals_desc);
+        cocking_time=findViewById(R.id.cocking_time);
+        meal_calories=findViewById(R.id.meals_calo);
+
+
         imagePreview=findViewById(R.id.imageView);
         progressBar=findViewById(R.id.progressBar2);
+        meal_type=findViewById(R.id.meal_type);
+
 
         storageReference= FirebaseStorage.getInstance().getReference("uploads");
         databaseReference=FirebaseDatabase.getInstance().getReference("uploads");
@@ -142,7 +165,9 @@ public class ShowImages extends AppCompatActivity {
                     SR.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            UploadImage uploadImage=new UploadImage(imgDescrption.getText().toString().trim(),uri.toString());
+                            //UploadImage uploadImage=new UploadImage(meal_name.getText().toString().trim(),uri.toString());
+
+                            UploadImage uploadImage=new UploadImage(USER_ID.trim(),uri.toString(),meal_name.getText().toString().trim(),meal_des.getText().toString().trim(),meal_type.getSelectedItem().toString().trim(),Integer.parseInt(cocking_time.getText().toString().trim()),Integer.parseInt(meal_calories.getText().toString().trim()),0);
                             String ID=databaseReference.push().getKey();
                             databaseReference.child(ID).setValue(uploadImage);
 

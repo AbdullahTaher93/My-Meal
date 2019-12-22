@@ -16,9 +16,9 @@
         <item>Seafood</item>
         <item>Side</item>
         <item>Starter</item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Vegetarian</item>
+        <item>Breakfast</item>
+        <item>Goat</item>
     </string-array>
     <string name="title_activity_inset">inset</string>
 </resources>

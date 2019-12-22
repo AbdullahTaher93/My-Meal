@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
 
+    <androidx.core.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+     <Spinner
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:entries="@array/MealsTypes"
+         android:id="@+id/meal_type"
+         >
 
+     </Spinner>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/NAME"
+        android:id="@+id/meal_name"
         android:textSize="18sp"
         android:hint="Meal name"
         />
@@ -20,6 +38,9 @@
         android:layout_height="300dp"
         android:textSize="18sp"
         android:id="@+id/meals_desc"
+        android:gravity="top"
+
+
         android:hint="Enter your cocking way"
         />
    <LinearLayout
@@ -32,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:id="@+id/cock_time"
+        android:id="@+id/cocking_time"
         android:inputType="datetime"
         android:hint="00.00"
         />
@@ -58,14 +79,17 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         app:srcCompat="@drawable/preview" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_gravity="center|bottom"
         >
 
         <Button
@@ -94,4 +118,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
