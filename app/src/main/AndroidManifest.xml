@@ -11,26 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewImageActivity"></activity>
+        <activity
+            android:name=".inset"
+            android:label="@string/title_activity_inset"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ViewImageActivity" />
+        <activity android:name=".Categories" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".signup"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".hini"
+            android:name=".meals"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ShowImages"
-            android:parentActivityName=".hini" />
+            android:parentActivityName=".meals" />
     </application>
 
 </manifest>

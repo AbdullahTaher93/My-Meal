@@ -1,6 +1,7 @@
 package com.apps.my_meal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,7 @@ public class ImageAdpter extends RecyclerView.Adapter<ImageAdpter.ImageViewHolde
         return mUploads.size();
     }
 
-    public class ImageViewHolder extends RecyclerView.ViewHolder {
+    public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView image_desc;
         public ImageView im_view;
         public ImageViewHolder(@NonNull View itemView) {
@@ -55,6 +56,16 @@ public class ImageAdpter extends RecyclerView.Adapter<ImageAdpter.ImageViewHolde
             im_view=itemView.findViewById(R.id.MealImage);
 
         }
-    }
 
+        @Override
+        public void onClick(View v) {
+
+        }
+    }
+    private void Myonclick(String id) {
+
+        Intent intent = new Intent();
+
+        context.startActivity(intent);
+    }
 }

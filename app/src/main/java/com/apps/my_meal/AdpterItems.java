@@ -40,14 +40,14 @@ private List<FoodData> myfood;
         holder.des.setText(myfood.get(position).getItemdes());
 
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
+        /*holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Log.d("d", position+"");
 
             }
-        });
+        });*/
 
     }
 

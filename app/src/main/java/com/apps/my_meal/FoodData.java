@@ -1,7 +1,6 @@
 package com.apps.my_meal;
 
-import android.widget.ImageView;
-import android.widget.TextView;
+
 
 public class FoodData {
     private String itemname, itemdes;

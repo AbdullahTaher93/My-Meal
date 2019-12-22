@@ -19,6 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText input_email;
     private EditText input_password;
     private Button btn_login;
+    public static String USER_ID="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +73,27 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Query query= FirebaseDatabase.getInstance().getReference("Users").orderByChild("user_email").equalTo(email);
+                            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot post:dataSnapshot.getChildren()){
+                                        USER_ID=post.getValue(Users.class).User_ID;
+
+                                    }
+                                    Toast.makeText(MainActivity.this,USER_ID,Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                             Toast.makeText(MainActivity.this,"Successfully",Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                             input_email.setText("");
                             input_password.setText("");
-                            Intent intent=new Intent(MainActivity.this,hini.class);
+                            Intent intent=new Intent(MainActivity.this, Categories.class);
                             startActivity(intent);
                         }else {
                             Toast.makeText(MainActivity.this,"createUserWithEmail:failure",Toast.LENGTH_LONG).show();

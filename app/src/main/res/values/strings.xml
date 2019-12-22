@@ -4,4 +4,21 @@
 
     <string name="search_your_recipes">Search Your Recipes…</string>
     <string name="meal_categories">Meal Categories</string>
+    <string-array name="MealsTypes">
+
+        <item>Beef</item>
+        <item>Chicken</item>
+        <item>Dessert</item>
+        <item>Lamb</item>
+        <item>Miscellaneous</item>
+        <item>Pasta</item>
+        <item>Pork</item>
+        <item>Seafood</item>
+        <item>Side</item>
+        <item>Starter</item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+    <string name="title_activity_inset">inset</string>
 </resources>

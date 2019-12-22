@@ -15,24 +15,11 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <EditText android:id="@+id/input_name"
+        <EditText android:id="@+id/input_nick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
-            android:hint="Name" />
-
-        <EditText android:id="@+id/input_surname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:hint="Surname" />
-
-        <EditText android:id="@+id/input_birthday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:hint="Birthday" />
-
+            android:hint="NickName" />
 
 
         <!-- Email Label -->

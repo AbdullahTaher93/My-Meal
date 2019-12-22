@@ -31,11 +31,13 @@ import com.squareup.picasso.Picasso;
 
 public class ShowImages extends AppCompatActivity {
     Button chooseImage,btnUploadImage,viewGarlley;
+
     EditText imgDescrption;
     ImageView imagePreview;
     Uri imgUrl;
     ProgressBar progressBar;
     private  int PICK_IMAGE_REQUEST=1;
+    private String USER_ID=MainActivity.USER_ID;
 
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
@@ -55,7 +57,12 @@ public class ShowImages extends AppCompatActivity {
         storageReference= FirebaseStorage.getInstance().getReference("uploads");
         databaseReference=FirebaseDatabase.getInstance().getReference("uploads");
 
-
+        imagePreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenFileChooser();
+            }
+        });
 
 
 
@@ -106,7 +113,6 @@ public class ShowImages extends AppCompatActivity {
 
         if(requestCode==1 && data.getData()!=null && resultCode==RESULT_OK&& data!=null){
             imgUrl=data.getData();
-            Log.d("IMAGE", "onActivityResult: "+imgUrl);
             Picasso.get().load(imgUrl).into(imagePreview);
 
 
