@@ -17,7 +17,11 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ViewImageActivity" />
         <activity android:name=".Categories" />
+        <activity android:name=".signup"/>
+        <activity android:name=".meals" />
+        <activity android:name=".ShowImages" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -25,12 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".meals"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".ShowImages"
-            android:parentActivityName=".meals" />
+
     </application>
 
 </manifest>
