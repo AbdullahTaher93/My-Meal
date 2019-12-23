@@ -22,6 +22,7 @@
          android:layout_height="wrap_content"
          android:entries="@array/MealsTypes"
          android:id="@+id/meal_type"
+
          >
 
      </Spinner>
@@ -80,7 +81,9 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/preview" />
+        app:srcCompat="@drawable/preview"
+        android:layout_gravity="center"
+        />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -92,27 +95,19 @@
         android:layout_gravity="center|bottom"
         >
 
-        <Button
-            android:id="@+id/brows"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableLeft="@android:drawable/ic_menu_camera"
-            android:text="brows" />
+
 
         <Button
             android:id="@+id/upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="20dp"
             android:drawableLeft="@android:drawable/stat_sys_upload"
-            android:text="Share Your Recipe" />
-        <Button
-            android:id="@+id/show"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="show" />
+            android:text="Share Your Recipe"
+            android:background="@color/colorPrimaryLight"
+            />
+
 
 
     </LinearLayout>

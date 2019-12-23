@@ -4,9 +4,9 @@ package com.apps.my_meal;
 
 public class FoodData {
     private String itemname, itemdes;
-    private int itemimage;
+    private String itemimage;
 
-    public FoodData(String itemname, String itemdes, int itemimage) {
+    public FoodData(String itemname, String itemdes, String itemimage) {
         this.itemname = itemname;
         this.itemdes = itemdes;
         this.itemimage = itemimage;
@@ -30,11 +30,11 @@ public class FoodData {
         this.itemdes = itemdes;
     }
 
-    public void setItemimage(int itemimage) {
+    public void setItemimage(String itemimage) {
         this.itemimage = itemimage;
     }
 
-    public int getItemimage() {
+    public String getItemimage() {
         return itemimage;
     }
 }

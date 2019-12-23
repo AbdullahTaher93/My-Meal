@@ -81,10 +81,10 @@ public class catrgories_adpter extends RecyclerView.Adapter<catrgories_adpter.ca
     }
 
 
-    private void passData(String id) {
+    private void passData(String meal_Type) {
 
         Intent intent = new Intent(context,meals.class);
-        intent.putExtra("id", ""+id);
+        intent.putExtra("meal_Type", ""+meal_Type);
         context.startActivity(intent);
     }
 }

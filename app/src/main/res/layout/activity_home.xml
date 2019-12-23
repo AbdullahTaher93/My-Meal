@@ -85,7 +85,8 @@
 
                 />
             <include android:id="@+id/shimmerMeal"
-                layout="@layout/item_view_pager_header_shimmer"
+
+                layout="@layout/item_view_pager_header"
                 />
             <!-- TODO 5 Add <TextView> for title of Category list -->
             <TextView

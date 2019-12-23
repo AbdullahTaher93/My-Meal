@@ -57,9 +57,9 @@ public class ShowImages extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showimage);
-        chooseImage=findViewById(R.id.brows);
+
         btnUploadImage=findViewById(R.id.upload);
-        viewGarlley=findViewById(R.id.show);
+
 
         USER_ID =MainActivity.USER_ID;
 
@@ -92,15 +92,7 @@ public class ShowImages extends AppCompatActivity {
 
 
 
-        chooseImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpenFileChooser();
 
-            }
-
-
-        });
 
         btnUploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,14 +102,6 @@ public class ShowImages extends AppCompatActivity {
             }
         });
 
-        viewGarlley.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(ShowImages.this,ViewImageActivity.class);
-                startActivity(intent);
-
-            }
-        });
 
 
     }
@@ -170,6 +154,22 @@ public class ShowImages extends AppCompatActivity {
                             UploadImage uploadImage=new UploadImage(USER_ID.trim(),uri.toString(),meal_name.getText().toString().trim(),meal_des.getText().toString().trim(),meal_type.getSelectedItem().toString().trim(),Integer.parseInt(cocking_time.getText().toString().trim()),Integer.parseInt(meal_calories.getText().toString().trim()),0);
                             String ID=databaseReference.push().getKey();
                             databaseReference.child(ID).setValue(uploadImage);
+
+
+
+
+                            //العودة الى قائمة الاطباق
+                            Intent intent=new Intent(ShowImages.this,meals.class);
+                            intent.putExtra("meal_Type",meal_type.getSelectedItem().toString());
+
+                            meal_name.setText("");
+                            meal_des.setText("");
+                            cocking_time.setText("");
+                            meal_calories.setText("");
+                            imagePreview.setImageResource(R.drawable.preview);
+
+
+                            startActivity(intent);
 
                         }
                     });
