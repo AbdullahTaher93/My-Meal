@@ -51,16 +51,18 @@ android:fitsSystemWindows="true">
             app:cardElevation="0dp"
 
             >
-            <TextView
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
                 android:padding="10dp"
-                android:text="@string/search_your_recipes"
+                android:hint="@string/search_your_recipes"
                 android:gravity="center_vertical"
                 android:textColor="@color/colorPrimaryLight"
+                android:textColorHint="@color/colorPrimaryLight"
                 android:drawableLeft="@drawable/ic_search_primary_light"
                 android:drawableStart="@drawable/ic_search_primary_light"
                 android:drawablePadding="10dp"
+                android:id="@+id/SearchMeals"
                 />
         </androidx.cardview.widget.CardView>
 

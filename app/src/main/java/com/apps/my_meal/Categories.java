@@ -2,10 +2,15 @@ package com.apps.my_meal;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +42,8 @@ public class Categories extends AppCompatActivity {
     DatabaseReference databaseReference;
     Query databaseReferenceMeals;
 
+    EditText SearchMeals;
+
 
 
 
@@ -51,6 +58,7 @@ public class Categories extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recylecatogires);
         viewPager =findViewById(R.id.viewpagerheader);
+
 
 
 
