@@ -57,16 +57,17 @@
        android:layout_marginTop="10dp"
        >
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:id="@+id/cocking_time"
         android:inputType="datetime"
-        android:hint="00.00"
+        android:layout_weight="1"
+        android:hint="Cocking Time"
         />
        <EditText
            android:layout_marginLeft="20dp"
-           android:layout_width="wrap_content"
+           android:layout_width="150dp"
            android:layout_height="wrap_content"
            android:textSize="18sp"
            android:inputType="numberDecimal"
@@ -92,7 +93,7 @@
         android:layout_gravity="center"
         android:scaleType="centerInside"
         android:padding="5dp"
-        
+
 
 
 
