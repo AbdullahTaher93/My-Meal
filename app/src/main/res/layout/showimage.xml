@@ -2,7 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+
+    >
 
 
 
@@ -11,7 +13,7 @@
         android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground">
+        android:background="@color/wh">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,6 +23,7 @@
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:entries="@array/MealsTypes"
+         android:layout_marginTop="10dp"
          android:id="@+id/meal_type"
 
          >
@@ -33,6 +36,7 @@
         android:id="@+id/meal_name"
         android:textSize="18sp"
         android:hint="Meal name"
+        android:layout_marginTop="10dp"
         />
     <EditText
         android:layout_width="match_parent"
@@ -40,6 +44,7 @@
         android:textSize="18sp"
         android:id="@+id/meals_desc"
         android:gravity="top"
+        android:layout_marginTop="10dp"
 
 
         android:hint="Enter your cocking way"
@@ -49,6 +54,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:orientation="horizontal"
+       android:layout_marginTop="10dp"
        >
     <EditText
         android:layout_width="wrap_content"
@@ -72,6 +78,7 @@
 
 
     <ProgressBar
+        android:layout_marginTop="10dp"
         android:id="@+id/progressBar2"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
@@ -79,10 +86,17 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         app:srcCompat="@drawable/preview"
         android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:padding="5dp"
+        
+
+
+
+
         />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -103,9 +117,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="20dp"
+            android:textColor="@color/wh"
             android:drawableLeft="@android:drawable/stat_sys_upload"
             android:text="Share Your Recipe"
-            android:background="@color/colorPrimaryLight"
+            android:background="@color/colorPrimaryDark"
+            android:paddingLeft="10dp"
             />
 
 
