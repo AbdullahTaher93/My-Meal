@@ -257,11 +257,12 @@ public class meals extends AppCompatActivity {
         //تم تصميم دايلوك لاظهار خيارات الترتيب
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         //تم وضع عنوان لهذا الدايلوك
-        builder.setTitle("Sort By").
+        builder.setTitle("Sort By");
                 //وضعه صوره مصغره تدل على الترتيب
-                setIcon(R.drawable.ic_sort).
+        builder.setIcon(android.R.drawable.ic_menu_sort_by_size);
+
                 //وضع اري في الدايلوك وانشاء انتر فيس
-                setItems(OP, new DialogInterface.OnClickListener() {
+        builder.setItems(OP, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

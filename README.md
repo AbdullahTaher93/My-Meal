@@ -22,5 +22,5 @@
 
 ## Sorting Dailog
 
-![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/add1.jpg) ![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/sorting.jpg)
+ ![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/sorting.jpg)
 
