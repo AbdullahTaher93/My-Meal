@@ -119,7 +119,7 @@
             android:layout_weight="1"
             android:layout_margin="20dp"
             android:textColor="@color/wh"
-            android:drawableLeft="@android:drawable/stat_sys_upload"
+            android:drawableLeft="@drawable/ic_action_share"
             android:text="Share Your Recipe"
             android:background="@color/colorPrimaryDark"
             android:paddingLeft="10dp"

@@ -118,12 +118,11 @@ public class ShowImages extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        if(requestCode==1 && data.getData()!=null && resultCode==RESULT_OK&& data!=null){
+        if(requestCode==1  && resultCode==RESULT_OK && data!=null){
             imgUrl=data.getData();
             Picasso.get().load(imgUrl).into(imagePreview);
-
-
-
+        }else{
+            Log.d("", "onActivityResult: ");
         }
     }
     private String getfileEx(Uri uri){

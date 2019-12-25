@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".meals"
-    tools:showIn="@layout/list_of_meals">
+    tools:showIn="@layout/list_of_meals"
+
+    >
 
 </androidx.constraintlayout.widget.ConstraintLayout>
