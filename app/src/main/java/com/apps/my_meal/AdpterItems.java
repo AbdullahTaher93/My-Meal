@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -22,7 +23,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Handler;
 
 public class AdpterItems extends RecyclerView.Adapter<FoodViewHeader> {
 private  Context context;
@@ -88,24 +91,90 @@ private List<UploadImage> uploadImages;
 
 
 class FoodViewHeader extends RecyclerView.ViewHolder{
-    ImageView imageView;
+    ImageView imageView,love;
     TextView name, des,publisher, calories,cocking_time;
     RatingBar rating;
     CardView cardView;
     Users users;
     Query query;
+    boolean flag=true;
+
+    private static final long DOUBLE_PRESS_INTERVAL = 250; // in millis
+    private long lastPressTime;
+
+    private boolean mHasDoubleClicked = false;
 
 
     public FoodViewHeader(View itemView) {
         super(itemView);
         imageView=itemView.findViewById(R.id.itemimage);
+        love=itemView.findViewById(R.id.loveit);
         name=itemView.findViewById(R.id.tvtitel);
         des=itemView.findViewById(R.id.tvdes);
         calories=itemView.findViewById(R.id.meal_calo);
         rating=itemView.findViewById(R.id.rating);
         publisher=itemView.findViewById(R.id.publisher);
         cocking_time=itemView.findViewById(R.id.cocking_time);
-
         cardView=itemView.findViewById(R.id.mycardview);
+
+
+
+
+
+
+
+        love.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (flag==true){
+
+                    love.setImageResource(R.drawable.ic_loveit);
+                    flag=false;
+
+                }else {
+                    love.setImageResource(R.drawable.ic_love);
+                    flag=true;
+                }
+            }
+        });
+
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long pressTime = System.currentTimeMillis();
+
+
+                // If double click...
+                if (pressTime - lastPressTime <= DOUBLE_PRESS_INTERVAL) {
+
+                    mHasDoubleClicked = true;
+                    if (flag==true){
+
+                        love.setImageResource(R.drawable.ic_loveit);
+                        flag=false;
+
+                    }else {
+                        love.setImageResource(R.drawable.ic_love);
+                        flag=true;
+                    }
+
+
+
+                }
+                else {     // If not double click....
+                    mHasDoubleClicked = false;
+
+
+
+
+
+                }
+                // record the last time the menu button was pressed.
+                lastPressTime = pressTime;
+            }
+        });
+
+
     }
 }
