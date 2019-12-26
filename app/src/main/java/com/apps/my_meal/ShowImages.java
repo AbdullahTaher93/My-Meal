@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -52,11 +53,14 @@ public class ShowImages extends AppCompatActivity {
     //تم تعريف داتة بيس خاصه بالفايبريس
     private DatabaseReference databaseReference;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showimage);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.logos);
 
         btnUploadImage=findViewById(R.id.upload);
 
@@ -149,10 +153,10 @@ public class ShowImages extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             //UploadImage uploadImage=new UploadImage(meal_name.getText().toString().trim(),uri.toString());
+                            String Meal_ID=databaseReference.push().getKey();
+                            UploadImage uploadImage=new UploadImage(MainActivity.USER_ID.trim(),Meal_ID.trim(),uri.toString(),meal_name.getText().toString().trim(),meal_des.getText().toString().trim(),meal_type.getSelectedItem().toString().trim(),Integer.parseInt(cocking_time.getText().toString().trim()),Integer.parseInt(meal_calories.getText().toString().trim()),0,0);
 
-                            UploadImage uploadImage=new UploadImage(USER_ID.trim(),uri.toString(),meal_name.getText().toString().trim(),meal_des.getText().toString().trim(),meal_type.getSelectedItem().toString().trim(),Integer.parseInt(cocking_time.getText().toString().trim()),Integer.parseInt(meal_calories.getText().toString().trim()),0);
-                            String ID=databaseReference.push().getKey();
-                            databaseReference.child(ID).setValue(uploadImage);
+                            databaseReference.child(Meal_ID).setValue(uploadImage);
 
 
 

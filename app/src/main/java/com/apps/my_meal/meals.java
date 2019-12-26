@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -106,6 +107,10 @@ public class meals extends AppCompatActivity {
         uploadImages=new ArrayList<>();
         Meals_Search=new ArrayList<>();
         Meals_Sort=new ArrayList<>();
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.logos);
 
         preferences=this.getSharedPreferences("my_Pre",MODE_PRIVATE);
 
@@ -215,16 +220,7 @@ public class meals extends AppCompatActivity {
 
     }
 
-   /* public void imagesgo(View view){
-        String mealname=nameM.getText().toString().trim();
-        String id =databaseReference.push().getKey();
-        infomeals inm=new infomeals(id,mealname);
-        databaseReference.child(id).setValue(inm);
 
-
-
-
-    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

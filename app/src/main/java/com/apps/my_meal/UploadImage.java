@@ -5,12 +5,13 @@ public class UploadImage {
     private String imgName;
     private String imgUrl;
 
-    private String meal_name,meal_des,meal_type,USER_ID;
-    private int cocking_time,meal_calories,rating;
+    private String meal_name,meal_des,meal_type,USER_ID,Meal_ID;
+    private int cocking_time,meal_calories,rating,likes;
 
 
-    public UploadImage(String USER_ID,String imgUrl, String meal_name, String meal_des, String meal_type, int cocking_time, int meal_calories, int rating) {
+    public UploadImage(String USER_ID,String Meal_ID,String imgUrl, String meal_name, String meal_des, String meal_type, int cocking_time, int meal_calories, int rating,int likes) {
         this.USER_ID=USER_ID;
+        this.Meal_ID=Meal_ID;
         this.imgUrl = imgUrl;
         this.meal_name = meal_name;
         this.meal_des = meal_des;
@@ -18,9 +19,26 @@ public class UploadImage {
         this.cocking_time = cocking_time;
         this.meal_calories = meal_calories;
         this.rating = rating;
+        this.likes=likes;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
     public UploadImage() {
+    }
+
+    public String getMeal_ID() {
+        return Meal_ID;
+    }
+
+    public void setMeal_ID(String meal_ID) {
+        Meal_ID = meal_ID;
     }
 
     public UploadImage(String imgName, String imgUrl) {

@@ -1,5 +1,6 @@
 package com.apps.my_meal;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -41,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         input_email=(EditText)findViewById(R.id.input_email);
         input_password=(EditText)findViewById(R.id.input_password);
         ProgressBar progressBar=(ProgressBar)findViewById(R.id.progressBar);
+
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.logos);
+
+
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 

@@ -98,13 +98,15 @@ android:focusable="true">
         android:background="#2F000000"
 
         >
+
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/loveit"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/ic_love"
+            app:srcCompat="@drawable/ic_love"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="5dp"
 

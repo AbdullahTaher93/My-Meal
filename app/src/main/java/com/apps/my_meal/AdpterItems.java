@@ -72,14 +72,7 @@ private List<UploadImage> uploadImages;
 
 
 
-        /*holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Log.d("d", position+"");
-
-            }
-        });*/
 
     }
 
@@ -177,4 +170,5 @@ class FoodViewHeader extends RecyclerView.ViewHolder{
 
 
     }
+
 }

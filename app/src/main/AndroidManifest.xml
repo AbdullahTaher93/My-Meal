@@ -11,17 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".My_Posts"
+            android:label="My Posts"
+
+            ></activity>
+
         <activity
             android:name=".inset"
             android:label="@string/title_activity_inset"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ViewImageActivity" />
         <activity android:name=".Categories" />
-        <activity android:name=".signup"/>
+        <activity android:name=".signup" />
         <activity android:name=".meals" />
         <activity android:name=".ShowImages" />
-        <activity android:name=".MainActivity">
-
+        <activity
+            android:name=".MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -29,7 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
