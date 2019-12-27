@@ -28,5 +28,5 @@
 
  ![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/myposts.jpg)
 
-![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/myposts1.jpg) ![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/myposts2.jpg) ![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/myposts3.jpg)
+![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/mypost1.jpg) ![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/mypost2.jpg) ![login](https://github.com/AbdullahTaher93/My-Meal/blob/master/img/mypost3.jpg)
 
