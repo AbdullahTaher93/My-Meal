@@ -116,7 +116,27 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
                 }
             }
         });
+       holder.deletpost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                DatabaseReference query=FirebaseDatabase.getInstance().getReference("uploads").child(meal_ID);
+                query.removeValue();
+                Log.d("                       ", "onClick: "+meal_ID);
+
+
+                if(uploadImages.size()!=0){
+                    uploadImages.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position,uploadImages.size());
+                }
+
+
+
+
+
+            }
+        });
 
 
 
@@ -133,7 +153,7 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
 
 
         ImageView imageView,love,editpost,deletpost,save;
-        TextView publisher,Likes;
+        TextView publisher,Likes,des_lable,time_leabel,Calories_lable;
         EditText name,des,calories,cocking_time;
 
         RatingBar rating;
@@ -166,6 +186,10 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
             cocking_time=itemView.findViewById(R.id.cocking_time);
             Likes=itemView.findViewById(R.id.likes);
             save=itemView.findViewById(R.id.save);
+
+            des_lable=itemView.findViewById(R.id.des_label);
+             time_leabel=itemView.findViewById(R.id.time_label);
+            Calories_lable=itemView.findViewById(R.id.Calories_label);
 
             cardView=itemView.findViewById(R.id.mycardview);
 
@@ -266,36 +290,7 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
 
                 }
             });
-
-
-
-            deletpost.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    DatabaseReference query=FirebaseDatabase.getInstance().getReference("uploads").child(meal_ID);
-                    query.removeValue();
-                    Log.d("                       ", "onClick: "+meal_ID);
-
-
-                    deletpost.setVisibility(View.GONE);
-
-                    imageView.setVisibility(View.GONE);
-                    love.setVisibility(View.GONE);
-                    editpost.setVisibility(View.GONE);
-                    deletpost.setVisibility(View.GONE);
-                    name.setVisibility(View.GONE);
-                    des.setVisibility(View.GONE);
-                    calories.setVisibility(View.GONE);
-                    rating.setVisibility(View.GONE);
-                    publisher.setVisibility(View.GONE);
-                    cocking_time.setVisibility(View.GONE);
-                    Likes.setText("Post Deleted..........");
-
-
-
-                }
-            });
+            
         }
 
 

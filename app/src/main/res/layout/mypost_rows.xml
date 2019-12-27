@@ -50,6 +50,7 @@
             <TextView
                 android:text="Recipe:"
                 android:gravity="left"
+                android:id="@+id/des_label"
                 android:layout_marginBottom="10dp"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
@@ -78,6 +79,7 @@
             <TextView
                 android:text="Cocking Time:"
                 android:gravity="left"
+                android:id="@+id/time_label"
                 android:layout_marginBottom="10dp"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
@@ -111,6 +113,7 @@
             <TextView
                 android:text="Calories:"
                 android:gravity="left"
+                android:id="@+id/Calories_label"
                 android:layout_marginBottom="10dp"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
