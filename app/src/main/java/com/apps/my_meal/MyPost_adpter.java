@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,10 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
     private  Context context;
     private List<UploadImage> uploadImages;
     private String meal_ID;
+
+    private UploadImage editpost;
+
+
     public MyPost_adpter(Context context, List<UploadImage> uploadImages) {
         this.context = context;
         this.uploadImages = uploadImages;
@@ -60,12 +66,17 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
 
 
 
+
+
+
         Picasso.get().load(uploadImages.get(position).getImgUrl()).into(holder.imageView);
         holder.name.setText(uploadImages.get(position).getMeal_name());
-        holder.des.setText("Recipe: "+uploadImages.get(position).getMeal_des());
-        holder.calories.setText("Calories: "+uploadImages.get(position).getMeal_calories());
-        holder.cocking_time.setText("Cocking time: "+uploadImages.get(position).getCocking_time());
+        holder.des.setText(uploadImages.get(position).getMeal_des());
+        holder.calories.setText(""+uploadImages.get(position).getMeal_calories());
+        holder.cocking_time.setText(""+uploadImages.get(position).getCocking_time());
         // holder.rating.setRating(Float.valueOf(uploadImages.get(position).getRating()));
+        holder.editpost.setImageResource(holder.edit);
+
         meal_ID=uploadImages.get(position).getMeal_ID();
         holder.query= FirebaseDatabase.getInstance().getReference("Users").orderByChild("user_ID").equalTo(uploadImages.get(position).getUSER_ID());
         holder.query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -83,6 +94,29 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
         });
 
 
+        holder.save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(holder.edit!=R.drawable.ic_editpost){
+                    holder.name.setEnabled(false);
+                    holder.des.setEnabled(false);
+                    holder.cocking_time.setEnabled(false);
+                    holder.calories.setEnabled(false);
+                    holder.editpost.setImageResource(R.drawable.ic_editpost);
+                    holder.edit=R.drawable.ic_editpost;
+                    holder.save.setImageResource(R.drawable.ic_save);
+
+                    editpost=new UploadImage(MainActivity.USER_ID.trim(),meal_ID.trim(),uploadImages.get(position).getImgUrl().trim(), holder.name.getText().toString().trim() , holder.des.getText().toString().trim(),uploadImages.get(position).getMeal_type(),Integer.parseInt(holder.cocking_time.getText().toString().trim()),Integer.parseInt(holder.calories.getText().toString().trim()), uploadImages.get(position).getRating(),uploadImages.get(position).getLikes());
+                    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("uploads");
+                    databaseReference.child(meal_ID).setValue(editpost);
+
+
+
+
+                }
+            }
+        });
+
 
 
 
@@ -98,14 +132,17 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
     public class mypost extends RecyclerView.ViewHolder {
 
 
-        ImageView imageView,love,editpost,deletpost;
-        TextView name, des,publisher, calories,cocking_time,Likes;
+        ImageView imageView,love,editpost,deletpost,save;
+        TextView publisher,Likes;
+        EditText name,des,calories,cocking_time;
+
         RatingBar rating;
         CardView cardView;
         Users users;
         Query query;
         boolean flag=true;
         private boolean mHasDoubleClicked = false;
+        int edit;
 
 
         private static final long DOUBLE_PRESS_INTERVAL = 250; // in millis
@@ -128,7 +165,11 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
             publisher=itemView.findViewById(R.id.publisher);
             cocking_time=itemView.findViewById(R.id.cocking_time);
             Likes=itemView.findViewById(R.id.likes);
+            save=itemView.findViewById(R.id.save);
+
             cardView=itemView.findViewById(R.id.mycardview);
+
+            edit=R.drawable.ic_editpost;
 
 
 
@@ -189,8 +230,44 @@ public class MyPost_adpter extends RecyclerView.Adapter<MyPost_adpter.mypost> {
                 @Override
                 public void onClick(View v) {
 
+
+                    if(edit==R.drawable.ic_editpost){
+                        editpost.setImageResource(R.drawable.ic_disedit);
+                        edit=R.drawable.ic_disedit;
+                        save.setImageResource(R.drawable.ic_saveit);
+
+                        name.setEnabled(true);
+                        des.setEnabled(true);
+                        cocking_time.setEnabled(true);
+                        calories.setEnabled(true);
+
+
+
+                    }else {
+                        editpost.setImageResource(R.drawable.ic_editpost);
+                        edit=R.drawable.ic_editpost;
+                        save.setImageResource(R.drawable.ic_save);
+
+                        name.setEnabled(false);
+                        des.setEnabled(false);
+                        cocking_time.setEnabled(false);
+                        calories.setEnabled(false);
+
+
+
+
+                    }
+
+
+
+
+
+
+
                 }
             });
+
+
 
             deletpost.setOnClickListener(new View.OnClickListener() {
                 @Override

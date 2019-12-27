@@ -25,47 +25,115 @@
             android:src="@drawable/sample_image_category"
             android:layout_width="match_parent"
             android:layout_height="260dp"/>
-        <TextView
+
+
+
+
+
+        <EditText
             android:text="Title"
-            android:gravity="center"
+            android:gravity="left"
             android:id="@+id/tvtitel"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:enabled="false"
             />
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+            <TextView
+                android:text="Recipe:"
+                android:gravity="left"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+
+                />
+        <EditText
             android:text="Description"
             android:gravity="left"
             android:id="@+id/tvdes"
             android:layout_marginBottom="10dp"
             android:textSize="10sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
+            android:enabled="false"
 
             />
-        <TextView
-            android:text="Cocking Time"
-            android:gravity="left"
-            android:id="@+id/cocking_time"
-            android:layout_marginBottom="10dp"
-            android:textSize="10sp"
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
 
-            />
+            >
+            <TextView
+                android:text="Cocking Time:"
+                android:gravity="left"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
 
-        <TextView
-            android:text="Calories"
-            android:gravity="left"
-            android:id="@+id/meal_calo"
-            android:layout_marginBottom="10dp"
-            android:textSize="10sp"
+                />
+            <EditText
+                android:text="Cocking Time"
+                android:gravity="left"
+                android:id="@+id/cocking_time"
+                android:layout_marginBottom="10dp"
+                android:textSize="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:inputType="datetime"
+
+
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
 
-            />
+            >
+
+            <TextView
+                android:text="Calories:"
+                android:gravity="left"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+
+                />
+            <EditText
+                android:text="Calories"
+                android:gravity="left"
+                android:id="@+id/meal_calo"
+                android:layout_marginBottom="10dp"
+                android:textSize="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:inputType="numberDecimal"
+
+                />
+        </LinearLayout>
+
+
+
 
         <TextView
             android:text="publisher"
@@ -123,11 +191,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
+
                 android:textStyle="bold|italic"
                 android:layout_marginTop="10dp"
 
                 />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/DeletePost"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/ic_delete"
 
+                android:layout_marginLeft="100dp"
+
+                />
+
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/save"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/ic_save"
+
+                android:layout_marginLeft="15dp"
+
+                />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,23 +231,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 app:srcCompat="@drawable/ic_editpost"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="100dp"
+
+                android:layout_marginLeft="15dp"
 
                 />
 
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/DeletePost"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                app:srcCompat="@drawable/ic_delete"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="5dp"
 
-                />
+
+
 
 
 
